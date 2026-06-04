@@ -2,8 +2,17 @@
 # Midwest Specialty Robotics — Apache config for cPanel static hosting
 # ===========================================================================
 
-# Default document
-DirectoryIndex index.html
+# Default document — the PHP access gate runs first
+DirectoryIndex index.php index.html
+
+# ---- Pre-launch gate: protect the real page + the password file ----
+# app.html may only be served by index.php (readfile); never directly over HTTP.
+<Files "app.html">
+  Require all denied
+</Files>
+<FilesMatch "^auth\.config(\.example)?\.php$">
+  Require all denied
+</FilesMatch>
 
 # ---- Force HTTPS -----------------------------------------------------------
 # Leave this COMMENTED OUT until your SSL certificate is active in cPanel

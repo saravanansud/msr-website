@@ -12,6 +12,7 @@ desktop.ini
 # Secrets & image-generation artifacts (NEVER commit)
 .gen/
 *.key
+auth.config.php
 
 # Logs
 *.log

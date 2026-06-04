@@ -1,4 +1,4 @@
+# Pre-launch: keep the coming-soon teaser out of search results.
+# At launch, restore full crawling (Allow: /) and re-add the Sitemap line.
 User-agent: *
-Allow: /
-
-Sitemap: https://www.midwestspecialtyrobotics.com/sitemap.xml
+Disallow: /

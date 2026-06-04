@@ -99,6 +99,30 @@ uncomment the "Force HTTPS" block at the top of `.htaccess`, then commit and pus
 
 ---
 
+## Pre-launch password gate (PHP)
+
+The site is gated until launch:
+- `index.php` shows a public **Coming Soon** splash → **Preview Access** button → password field.
+- On the correct password it serves the real page (`app.html`). `app.html` is blocked from
+  direct access by `.htaccess`, so it can't be reached without the password.
+- The password lives **only on the server**, never in this repo.
+
+### One-time: set the preview password on the server
+1. Deploy (Update from Remote → Deploy HEAD Commit).
+2. In **cPanel → File Manager → `public_html`**, click **+ File**, name it **`auth.config.php`**.
+3. Edit it and paste exactly (use your own password):
+   ```php
+   <?php
+   return 'your-preview-password-here';
+   ```
+4. Save. Visiting the domain now shows the splash; that password unlocks the site.
+   Share the password with whoever needs preview access.
+
+`auth.config.php` is git-ignored, so deploys never overwrite or expose it. To change the
+password later, just edit that file. To **remove the gate at launch**: delete `index.php`
+(or point `DirectoryIndex` to `app.html`/rename `app.html` back to `index.html`), and restore
+`robots.txt` to `Allow: /` with the Sitemap line.
+
 ## Notes & troubleshooting
 - **Deploying to a subdomain instead?** Change `$HOME/public_html/` in `.cpanel.yml` to e.g.
   `$HOME/public_html/msr/` (or the addon-domain docroot).
