@@ -1,9 +1,12 @@
 ---
 # cPanel Git Version Control deployment.
-# Runs when you deploy the pushed commit (one click in cPanel, or automated — see DEPLOYMENT.md).
-# Copies the site into public_html and leaves repo/dev files behind.
+# Copies the site into public_html. Uses /bin/cp (present on every cPanel host)
+# so it can't silently fail the way rsync can when rsync isn't installed.
 deployment:
   tasks:
     - export DEPLOYPATH=$HOME/public_html/
     - /bin/mkdir -p $DEPLOYPATH
-    - /usr/bin/rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='*.md' ./ $DEPLOYPATH
+    # Remove Namecheap's default placeholder so our index.html is served
+    - /bin/rm -f $DEPLOYPATH/index.php $DEPLOYPATH/default.html
+    # Copy the site (explicit list keeps repo/dev files out of public_html)
+    - /bin/cp -R index.html assets .htaccess favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png icon-192.png icon-512.png robots.txt sitemap.xml site.webmanifest $DEPLOYPATH
