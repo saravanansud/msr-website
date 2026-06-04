@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.midwestspecialtyrobotics.com/</loc>
+    <lastmod>2026-06-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.midwestspecialtyrobotics.com/assets/img/msr-og-cover.jpg</image:loc>
+      <image:title>Midwest Specialty Robotics — robots that work every shift</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.midwestspecialtyrobotics.com/assets/img/keenon-kleenbot-c55-cleaning-robot.png</image:loc>
+      <image:title>KEENON KLEENBOT C55 autonomous floor-cleaning robot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.midwestspecialtyrobotics.com/assets/img/keenon-dinerbot-t10-delivery-robot.webp</image:loc>
+      <image:title>KEENON DINERBOT T10 food delivery robot</image:title>
+    </image:image>
+  </url>
+</urlset>

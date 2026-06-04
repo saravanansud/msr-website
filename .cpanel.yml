@@ -1,0 +1,9 @@
+---
+# cPanel Git Version Control deployment.
+# Runs when you deploy the pushed commit (one click in cPanel, or automated — see DEPLOYMENT.md).
+# Copies the site into public_html and leaves repo/dev files behind.
+deployment:
+  tasks:
+    - export DEPLOYPATH=$HOME/public_html/
+    - /bin/mkdir -p $DEPLOYPATH
+    - /usr/bin/rsync -a --exclude='.git' --exclude='.gitignore' --exclude='.cpanel.yml' --exclude='*.md' ./ $DEPLOYPATH
