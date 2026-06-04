@@ -400,6 +400,62 @@ section{padding:120px 0;position:relative}
   .loop .frame img{transform:none}
 }
 
+/* ═══════════ Premium polish (ui-ux-pro-max pass) ═══════════ */
+/* film-grain overlay */
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:url(assets/img/grain.png);background-size:150px 150px;opacity:.5;mix-blend-mode:soft-light}
+/* tabular figures so numbers don't jitter */
+.hero-stats .num,.problem-card .pc-num,.proof-stats .ps .v,.vert-card .v-count,.sv-badge .v,.pricing-card .pc-price,.hero-badge .b-val{font-variant-numeric:tabular-nums}
+/* button micro-interaction: sheen sweep + press feedback */
+.btn,.nav-cta{position:relative;overflow:hidden}
+.btn::after,.nav-cta::after{content:"";position:absolute;top:0;left:-120%;width:55%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);transition:left .55s ease;pointer-events:none}
+.btn:hover::after,.nav-cta:hover::after{left:150%}
+.btn:active,.nav-cta:active{transform:translateY(0) scale(.97)}
+.nav.scrolled{box-shadow:0 8px 32px rgba(0,0,0,.28)}
+/* hero animated gradient mesh */
+.hero-mesh{position:absolute;inset:-20% -10%;z-index:0;pointer-events:none;filter:blur(64px);opacity:.7}
+.hero-mesh i{position:absolute;display:block;border-radius:50%}
+.hero-mesh .m1{width:46%;height:46%;left:58%;top:-8%;background:radial-gradient(circle,rgba(71,189,197,.5),transparent 70%);animation:drift1 19s ease-in-out infinite}
+.hero-mesh .m2{width:42%;height:42%;left:-8%;top:54%;background:radial-gradient(circle,rgba(232,93,47,.38),transparent 70%);animation:drift2 23s ease-in-out infinite}
+.hero-mesh .m3{width:30%;height:30%;left:34%;top:28%;background:radial-gradient(circle,rgba(71,189,197,.26),transparent 70%);animation:drift3 27s ease-in-out infinite}
+@keyframes drift1{0%,100%{transform:translate(0,0)}50%{transform:translate(-12%,10%)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}50%{transform:translate(14%,-8%)}}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(8%,12%)}}
+.hero>.container,.hero>.hero-grid{position:relative;z-index:1}
+/* marquee ticker */
+.ticker{background:var(--navy-4);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);overflow:hidden;position:relative}
+.ticker::before,.ticker::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none}
+.ticker::before{left:0;background:linear-gradient(90deg,var(--navy-4),transparent)}
+.ticker::after{right:0;background:linear-gradient(270deg,var(--navy-4),transparent)}
+.ticker-row{display:flex;width:max-content;animation:tick 40s linear infinite}
+.ticker:hover .ticker-row{animation-play-state:paused}
+.ticker-group{display:flex}
+.ticker-item{display:inline-flex;align-items:center;gap:14px;padding:19px 30px;font-family:var(--font-display);font-weight:700;font-size:15px;letter-spacing:.03em;color:#cdd8e8;white-space:nowrap}
+.ticker-item .tk-k{color:var(--teal)}
+.ticker-item .tk-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex:0 0 auto}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* HubSpot form card (light surface = legible regardless of HubSpot theme) */
+.hs-card{background:#fff;border-radius:10px;padding:30px;border:1px solid rgba(9,35,66,.1);box-shadow:0 24px 60px rgba(0,0,0,.32)}
+.hs-card .hs-h{font-family:var(--font-display);font-weight:800;font-size:20px;color:var(--navy);margin-bottom:6px}
+.hs-card .hs-sub{font-size:13px;color:#52617a;margin-bottom:18px;line-height:1.5}
+.hs-form-frame{min-height:120px}
+.hs-card label{font-family:var(--font-display);font-weight:600;font-size:13px;color:var(--navy)}
+.hs-card .hs-input,.hs-card input[type=text],.hs-card input[type=email],.hs-card select,.hs-card textarea{width:100%;padding:12px 14px;border:1px solid rgba(9,35,66,.18);border-radius:6px;font-size:15px}
+.hs-card .hs-button,.hs-card input[type=submit]{background:var(--orange)!important;color:#fff!important;border:none!important;border-radius:4px!important;padding:14px 24px!important;font-family:var(--font-display)!important;font-weight:700!important;letter-spacing:.06em!important;text-transform:uppercase!important;cursor:pointer}
+@media (max-width:960px){
+  .nav-links{display:none}
+  .nav-inner > .nav-cta{display:none}
+  .nav-burger{display:flex}
+}
+@media (max-width:720px){
+  .ticker-item{padding:15px 20px;font-size:13px}
+  body::after{opacity:.32}
+}
+@media (prefers-reduced-motion:reduce){
+  .ticker-row{animation:none!important}
+  .hero-mesh i{animation:none!important}
+  .btn::after,.nav-cta::after{display:none}
+}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
@@ -520,6 +576,7 @@ section{padding:120px 0;position:relative}
 
 <!-- ═════════ HERO ═════════ -->
 <header class="hero" id="top">
+  <div class="hero-mesh" aria-hidden="true"><i class="m1"></i><i class="m2"></i><i class="m3"></i></div>
   <div class="hero-grid"></div>
   <div class="container hero-inner">
     <div>
@@ -608,13 +665,33 @@ section{padding:120px 0;position:relative}
   </div>
 </header>
 
-<!-- ═════════ TRUST STRIP ═════════ -->
-<section class="trust" style="padding:30px 0" aria-label="Our OEM partner and global customers">
-  <div class="container trust-inner">
-    <span class="trust-lab">Launching with</span>
-    <img class="trust-logo" src="assets/img/keenon-logo.png" width="120" height="30" alt="KEENON Robotics logo" loading="lazy" decoding="async" />
-    <span class="trust-lab" style="color:var(--gray)">Trusted globally by</span>
-    <div class="trust-names"><span>Hilton</span><span>Marriott</span><span>McDonald's</span><span>Pizza Hut</span><span>SoftBank</span></div>
+<!-- ═════════ TICKER ═════════ -->
+<section class="ticker" aria-label="Launching with KEENON Robotics — global proof points">
+  <div class="ticker-row">
+    <div class="ticker-group">
+      <span class="ticker-item"><span class="tk-dot"></span>Launching with <span class="tk-k">&nbsp;KEENON Robotics</span></span>
+      <span class="ticker-item"><span class="tk-dot"></span>100K+ robots deployed worldwide</span>
+      <span class="ticker-item"><span class="tk-dot"></span>600+ cities · 60+ countries</span>
+      <span class="ticker-item"><span class="tk-dot"></span>730+ patents · #1 category leader</span>
+      <span class="ticker-item"><span class="tk-dot"></span>Trusted globally by Hilton, Marriott, McDonald's, Pizza Hut &amp; SoftBank</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">KLEENBOT&nbsp;</span> autonomous cleaning</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">DINERBOT&nbsp;</span> food &amp; room service</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">BUTLERBOT&nbsp;</span> multi-floor delivery</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">S300&nbsp;</span> 300 kg heavy-load shuttle</span>
+      <span class="ticker-item"><span class="tk-dot"></span>Robots that work with your people</span>
+    </div>
+    <div class="ticker-group" aria-hidden="true">
+      <span class="ticker-item"><span class="tk-dot"></span>Launching with <span class="tk-k">&nbsp;KEENON Robotics</span></span>
+      <span class="ticker-item"><span class="tk-dot"></span>100K+ robots deployed worldwide</span>
+      <span class="ticker-item"><span class="tk-dot"></span>600+ cities · 60+ countries</span>
+      <span class="ticker-item"><span class="tk-dot"></span>730+ patents · #1 category leader</span>
+      <span class="ticker-item"><span class="tk-dot"></span>Trusted globally by Hilton, Marriott, McDonald's, Pizza Hut &amp; SoftBank</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">KLEENBOT&nbsp;</span> autonomous cleaning</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">DINERBOT&nbsp;</span> food &amp; room service</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">BUTLERBOT&nbsp;</span> multi-floor delivery</span>
+      <span class="ticker-item"><span class="tk-dot"></span><span class="tk-k">S300&nbsp;</span> 300 kg heavy-load shuttle</span>
+      <span class="ticker-item"><span class="tk-dot"></span>Robots that work with your people</span>
+    </div>
   </div>
 </section>
 
@@ -965,23 +1042,12 @@ section{padding:120px 0;position:relative}
       <p class="lede">We're booking discovery walk-throughs and first deployments now. Tell us where the labor pain is and you'll be first in line when we launch. We'll spend an hour on your floor and show you which routes pay back fastest — no deck, no quote.</p>
       <div class="cta-checks"><span>No commitment</span><span>Early-access pricing</span><span>Wisconsin team, on the floor</span></div>
     </div>
-    <form class="cta-form reveal" onsubmit="event.preventDefault();document.getElementById('cta-submit').textContent='Thanks. We will reach out within one business day.';this.querySelector('button').disabled=true;">
-      <h3 id="cta-submit">Get early access</h3>
-      <div class="field"><label for="f-name">Your Name</label><input id="f-name" type="text" required placeholder="First Last" autocomplete="name" /></div>
-      <div class="field"><label for="f-co">Company</label><input id="f-co" type="text" required placeholder="Plant, hotel, restaurant, hospital" autocomplete="organization" /></div>
-      <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" required placeholder="you@company.com" autocomplete="email" /></div>
-      <div class="field"><label for="f-pain">Where is the labor pain?</label>
-        <select id="f-pain" required>
-          <option value="">Pick one</option>
-          <option>Cleaning &middot; custodial &middot; sanitation</option>
-          <option>Delivery &middot; room service &middot; banquet</option>
-          <option>Plant floor &middot; pallet shuttle &middot; machine tending</option>
-          <option>Hospital supply runs &middot; linen &middot; EVS</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-      <button type="submit" class="btn btn-primary">Request Early Access</button>
-    </form>
+    <div class="hs-card reveal">
+      <div class="hs-h">Get early access</div>
+      <div class="hs-sub">Tell us where the labor pain is and we'll be in touch within one business day.</div>
+      <!-- HubSpot embedded form -->
+      <div class="hs-form-frame" data-region="na2" data-form-id="c6c89938-0478-4bb7-9a56-559777360f8d" data-portal-id="246386546"></div>
+    </div>
   </div>
 </section>
 
@@ -1000,6 +1066,9 @@ section{padding:120px 0;position:relative}
     <div class="foot-bot"><div>&copy; 2026 Midwest Specialty Robotics, LLC. Milwaukee, Wisconsin. All rights reserved.</div><div class="tagline">Engineered for the real world.</div></div>
   </div>
 </footer>
+
+<!-- HubSpot forms embed -->
+<script src="https://js-na2.hsforms.net/forms/embed/246386546.js" defer></script>
 
 <script>
 const nav = document.getElementById('nav');
