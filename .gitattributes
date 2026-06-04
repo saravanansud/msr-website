@@ -1,0 +1,10 @@
+# Normalize line endings. Server-side files MUST be LF so cPanel (Linux)
+# parses .cpanel.yml / .htaccess correctly even when edited on Windows.
+* text=auto eol=lf
+
+# Treat binary assets as binary (never touch line endings)
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.ico  binary
