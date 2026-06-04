@@ -45,7 +45,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- ============ PRELOAD ABOVE-THE-FOLD ART ============ -->
-<link rel="preload" as="image" href="assets/img/keenon-kleenbot-c55-cleaning-robot.png" />
+<link rel="preload" as="image" href="assets/img/hero-story-manufacturing.jpg" fetchpriority="high" />
 
 <style>
 /* ============================================================
@@ -110,7 +110,7 @@ p{font-size:17px;line-height:1.6}
 /* ─────────────── Hero ─────────────── */
 .hero{position:relative;padding:160px 0 100px;background:radial-gradient(circle at 85% -10%,rgba(71,189,197,.28) 0%,rgba(71,189,197,0) 55%),radial-gradient(circle at 5% 100%,rgba(232,93,47,.18) 0%,rgba(232,93,47,0) 50%),linear-gradient(180deg,#0a2548 0%,#071b35 100%);overflow:hidden}
 .hero-grid{position:absolute;inset:0;opacity:.18;pointer-events:none;background-image:linear-gradient(rgba(71,189,197,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(71,189,197,.15) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse at center,#000 35%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse at center,#000 35%,transparent 75%)}
-.hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+.hero-inner{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);padding:8px 14px;border:1px solid var(--teal-line);border-radius:100px;background:var(--teal-soft);margin-bottom:28px}
 .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
 .hero h1{margin-bottom:24px}
@@ -456,6 +456,13 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
   .btn::after,.nav-cta::after{display:none}
 }
 
+/* hero story photo (replaces SVG floor plan) */
+.hero-visual{min-height:auto}
+.hero-visual .floor-svg,.hero-visual .hero-badge{display:none}
+.hero-photo{width:100%;border-radius:14px;border:1px solid var(--rule-2);box-shadow:0 30px 90px rgba(0,0,0,.5)}
+.hero-photo-cap{position:absolute;left:16px;bottom:16px;z-index:3;display:inline-flex;align-items:center;gap:9px;background:rgba(5,21,42,.8);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--teal-line);border-radius:100px;padding:9px 16px;font-family:var(--font-display);font-weight:700;font-size:12px;letter-spacing:.03em;color:#fff}
+.hero-photo-cap .hpc-dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 10px var(--orange);animation:blink 1.4s infinite}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
 .reveal.in{opacity:1;transform:none}
@@ -593,8 +600,10 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
         <div class="stat"><div class="num">5-Step</div><div class="lab">Walk · POC · Pilot · Commit · Scale</div></div>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <svg class="floor-svg" viewBox="0 0 640 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated facility floor plan with autonomous robot routes">
+    <div class="hero-visual">
+      <img class="hero-photo" src="assets/img/hero-story-manufacturing.jpg" width="1344" height="768" alt="A factory worker concentrates on a CNC machine while a KEENON KLEENBOT C55 autonomous robot scrubs the plant floor — robots handle the mundane work so people focus on skilled, higher-value tasks" fetchpriority="high" decoding="async" />
+      <div class="hero-photo-cap"><span class="hpc-dot"></span>Robots on the mundane. Your people on the rest.</div>
+      <svg class="floor-svg" viewBox="0 0 640 560" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated facility floor plan with autonomous robot routes">
         <defs>
           <linearGradient id="zoneFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#47BDC5" stop-opacity=".05"/><stop offset="100%" stop-color="#47BDC5" stop-opacity="0"/></linearGradient>
           <linearGradient id="dockFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#E85D2F" stop-opacity=".07"/><stop offset="100%" stop-color="#E85D2F" stop-opacity="0"/></linearGradient>

@@ -9,5 +9,9 @@ desktop.ini
 # Local dev server config (harness)
 .claude/
 
+# Secrets & image-generation artifacts (NEVER commit)
+.gen/
+*.key
+
 # Logs
 *.log
