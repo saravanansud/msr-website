@@ -9,4 +9,4 @@ deployment:
     # Remove the old static homepage + Namecheap placeholder (NOT auth.config.php)
     - /bin/rm -f $DEPLOYPATH/index.html $DEPLOYPATH/default.html
     # Copy the site. index.php is the gate; app.html is the protected page.
-    - /bin/cp -R index.php app.html auth.config.example.php assets .htaccess favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png icon-192.png icon-512.png robots.txt sitemap.xml site.webmanifest $DEPLOYPATH
+    - /bin/cp -R index.php app.html auth.config.example.php invest assets .htaccess favicon.ico favicon-16x16.png favicon-32x32.png apple-touch-icon.png icon-192.png icon-512.png robots.txt sitemap.xml site.webmanifest $DEPLOYPATH

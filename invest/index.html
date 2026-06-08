@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Midwest Specialty Robotics — Founding Round</title>
+<meta name="description" content="Midwest Specialty Robotics is raising its founding round to launch Wisconsin's managed-service operator for autonomous mobile robots." />
+<meta name="robots" content="noindex,nofollow" />
+<meta name="theme-color" content="#092342" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#092342;--navy-2:#0c2c50;--navy-3:#071b35;--navy-4:#05152a;--teal:#47BDC5;--teal-soft:rgba(71,189,197,.14);--teal-line:rgba(71,189,197,.28);--orange:#E85D2F;--gray:#ABADB0;--text:#e9eef5;--text-dim:#9bb0cc;--rule:rgba(255,255,255,.08);--rule-2:rgba(255,255,255,.16);--maxw:1080px;--fd:"Montserrat",sans-serif;--fb:"Helvetica Neue","Helvetica","Arial",system-ui,sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--navy);color:var(--text);font-family:var(--fb);font-weight:300;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;position:relative}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:url(/assets/img/grain.png);background-size:150px 150px;opacity:.4;mix-blend-mode:soft-light}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--fd);font-weight:800;letter-spacing:-.01em;line-height:1.08;color:#fff}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);padding:8px 14px;border:1px solid var(--teal-line);border-radius:100px;background:var(--teal-soft)}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 12px var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--fd);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;padding:16px 28px;border-radius:3px;transition:transform .15s,box-shadow .25s,background .15s,color .15s}
+.btn-primary{background:var(--orange);color:#fff;box-shadow:0 6px 24px rgba(232,93,47,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(232,93,47,.45)}
+.btn-secondary{background:transparent;color:#fff;border:1px solid var(--teal)}
+.btn-secondary:hover{background:var(--teal);color:var(--navy)}
+
+/* top brand bar */
+.bar{padding:26px 0;border-bottom:1px solid var(--rule)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:40px}
+.brand .nm{font-family:var(--fd);font-weight:900;font-size:13px;letter-spacing:.18em;color:#fff}
+.bar .conf{font-family:var(--fd);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gray)}
+
+/* hero */
+.hero{position:relative;padding:88px 0 64px;background:radial-gradient(circle at 88% -10%,rgba(71,189,197,.22),transparent 55%),radial-gradient(circle at 0% 110%,rgba(232,93,47,.16),transparent 50%),linear-gradient(180deg,#0a2548,#071b35);overflow:hidden}
+.hero h1{font-size:clamp(36px,5.4vw,62px);font-weight:900;letter-spacing:-.02em;margin:22px 0 22px;max-width:880px}
+.hero h1 .t{color:var(--teal)}
+.hero .lede{font-size:20px;line-height:1.55;color:#cdd8e8;max-width:680px;font-weight:300}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+
+/* section */
+section{padding:72px 0;position:relative}
+.sec-h{font-family:var(--fd);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:18px}
+h2{font-size:clamp(26px,3.2vw,40px);margin-bottom:20px;max-width:760px}
+.lead{font-size:18px;color:#cdd8e8;max-width:720px;line-height:1.6;font-weight:300}
+
+/* stat grid */
+.grid{display:grid;gap:18px;margin-top:36px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.card{padding:28px 24px;background:rgba(255,255,255,.025);border:1px solid var(--rule);border-radius:8px;transition:transform .2s,border-color .2s,background .2s}
+.card:hover{transform:translateY(-3px);border-color:var(--teal-line);background:rgba(71,189,197,.04)}
+.card .v{font-family:var(--fd);font-weight:900;font-size:38px;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:8px;font-variant-numeric:tabular-nums}
+.card .v .s{color:var(--teal);font-size:20px}
+.card .l{font-size:14px;color:var(--text-dim);line-height:1.45}
+.card .t{font-family:var(--fd);font-weight:700;font-size:17px;color:#fff;margin-bottom:8px}
+.card .d{font-size:14px;color:var(--text-dim);line-height:1.55}
+
+/* image band */
+.band{border-radius:12px;overflow:hidden;border:1px solid var(--rule-2);box-shadow:0 24px 70px rgba(0,0,0,.45);margin-top:8px;position:relative}
+.band img{width:100%;display:block}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,21,42,.7))}
+.band .cap{position:absolute;left:22px;bottom:18px;z-index:2;font-family:var(--fd);font-weight:700;font-size:14px;color:#fff;letter-spacing:.02em}
+
+/* why-now list */
+.alt{background:linear-gradient(180deg,var(--navy-3),var(--navy))}
+.bul{list-style:none;display:grid;gap:14px;margin-top:30px}
+.bul li{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:rgba(255,255,255,.025);border:1px solid var(--rule);border-radius:8px}
+.bul li .k{flex:0 0 auto;width:30px;height:30px;border-radius:7px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-weight:800;font-size:14px}
+.bul li b{color:#fff;font-family:var(--fd);font-weight:700;font-size:15px}
+.bul li span{color:var(--text-dim);font-size:14px}
+
+/* CTA */
+.cta{background:linear-gradient(135deg,var(--navy),var(--navy-3));text-align:center}
+.cta h2{margin:0 auto 18px}
+.cta .lead{margin:0 auto 32px}
+.cta .ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta .note{margin-top:26px;font-size:13px;color:var(--gray)}
+
+/* footer */
+.foot{background:var(--navy-4);padding:40px 0;border-top:1px solid var(--rule);font-size:12px;color:var(--gray);letter-spacing:.04em}
+.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot .conf{max-width:640px;line-height:1.6}
+
+@media (max-width:860px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.g2{grid-template-columns:1fr}}
+@media (max-width:560px){.g4{grid-template-columns:1fr}section{padding:56px 0}}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="brand">
+      <img src="/assets/img/msr-logo-mark.png" width="40" height="40" alt="Midwest Specialty Robotics" />
+      <span class="nm">MIDWEST SPECIALTY ROBOTICS</span>
+    </div>
+    <span class="conf">Founding Round · Confidential</span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span> Investor Brief · Wisconsin</span>
+    <h1>The work still has to get done. <span class="t">We're putting robots on it.</span></h1>
+    <p class="lede">Midwest Specialty Robotics is building the managed-service operator — the "MSP for your AMR" — that puts autonomous robots to work across Wisconsin's factories, hotels, hospitals, and restaurants. Launching with KEENON, the global category leader. We're raising our founding round.</p>
+    <div class="ctas">
+      <a href="mailto:hello@midwestspecialtyrobotics.com?subject=MSR%20Founding%20Round%20%E2%80%94%20Investor%20Materials" class="btn btn-primary">Request the Investor Materials</a>
+      <a href="#opportunity" class="btn btn-secondary">See the Opportunity</a>
+    </div>
+  </div>
+</header>
+
+<section id="opportunity">
+  <div class="wrap">
+    <div class="sec-h">The Opportunity</div>
+    <h2>A permanent labor gap, a proven robot, and no one serving the market.</h2>
+    <p class="lead">Wisconsin's operators can't fill the shifts — and the cleaning, delivery, and supply runs still have to happen. The robots that do this work are proven globally. Until MSR, almost no one was bringing them to the Midwest with local service behind them.</p>
+    <div class="grid g4">
+      <div class="card"><div class="v">8,787</div><div class="l">Manufacturers in Wisconsin</div></div>
+      <div class="card"><div class="v">800<span class="s">+</span></div><div class="l">Hotels statewide</div></div>
+      <div class="card"><div class="v">7,000<span class="s">+</span></div><div class="l">Restaurants</div></div>
+      <div class="card"><div class="v">196</div><div class="l">Hospitals</div></div>
+    </div>
+    <div class="band" style="margin-top:36px">
+      <img src="/assets/img/hero-story-manufacturing.jpg" width="1344" height="768" alt="A KEENON autonomous robot works alongside a factory worker on a Wisconsin plant floor" loading="lazy" decoding="async" />
+      <div class="cap">Robots on the mundane. People on the work that builds revenue.</div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-h">Why It Works</div>
+    <h2>A recurring-revenue model behind a global category leader.</h2>
+    <div class="grid g3">
+      <div class="card"><div class="t">The MSP model</div><div class="d">Robot-as-a-Service subscriptions — sticky, recurring, high-margin. One local partner specs, deploys, integrates, and services every machine.</div></div>
+      <div class="card"><div class="t">Proven OEM</div><div class="d">KEENON: 100K+ robots deployed, 600+ cities, 60+ countries, 730+ patents. We're launching as their Wisconsin partner.</div></div>
+      <div class="card"><div class="t">Local moat</div><div class="d">On-the-ground service in-state, territory-first. The kind of partner an operator can't get from a far-away dealer.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h">Why Now</div>
+    <h2>The tailwinds are lining up at once.</h2>
+    <ul class="bul">
+      <li><span class="k">1</span><div><b>Labor economics.</b> <span>A historically tight market means the math on automation finally works for operators — and they know it.</span></div></li>
+      <li><span class="k">2</span><div><b>Policy tailwinds.</b> <span>The WEDC $35K robotics adoption grant and 100% bonus depreciation through 2029 lower the buyer's cost of entry.</span></div></li>
+      <li><span class="k">3</span><div><b>Category inflection.</b> <span>Service robotics is the fastest-growing robot category — and KEENON is scaling its North American footprint now.</span></div></li>
+      <li><span class="k">4</span><div><b>First mover.</b> <span>The territory is open. The window to lock in Wisconsin as the local managed-service operator is now.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="sec-h" style="text-align:center">The Round</div>
+    <h2>We're raising our founding round.</h2>
+    <p class="lead">Full financials, market model, and the go-to-market plan are in the confidential investor brief. If the thesis resonates, we'd like to walk you through it.</p>
+    <div class="ctas">
+      <a href="mailto:hello@midwestspecialtyrobotics.com?subject=MSR%20Founding%20Round%20%E2%80%94%20Investor%20Materials" class="btn btn-primary">Request the Investor Materials</a>
+      <a href="mailto:hello@midwestspecialtyrobotics.com?subject=MSR%20Founding%20Round%20%E2%80%94%20Intro%20Call" class="btn btn-secondary">Book an Intro Call</a>
+    </div>
+    <div class="note">hello@midwestspecialtyrobotics.com · Milwaukee, Wisconsin</div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="brand"><img src="/assets/img/msr-logo-mark.png" width="30" height="30" alt="" /><span class="nm" style="font-size:11px">MIDWEST SPECIALTY ROBOTICS</span></div>
+    <div class="conf">&copy; 2026 Midwest Specialty Robotics, LLC. Confidential — for the named recipient only. Not an offer to sell or a solicitation of an offer to buy securities.</div>
+  </div>
+</footer>
+
+</body>
+</html>
